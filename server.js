@@ -1,11 +1,26 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello express')
+app.use(express.static('public'));
+
+
+app.get('/login', (req, res) => {
+    res.send('Bienvenue sur la page de login');
 });
+
+app.get('/info', (req, res) => {
+    res.json({ cle1: 'valeur1', cle2: 'valeur2' });
+});
+
+app.post('/register', (req, res) => {
+    console.log('Données reçues pour l\'inscription');
+    console.log(req.body);
+    res.json({ message: 'Inscription réussie' });
+});
+
+
 
 app.listen(3000, () => {
     let monIp = require('ip').address();
-    console.log('Server is running on http://${monIp}:3000');
+    console.log(`Server is running on http://${monIp}:3000`);
 });
