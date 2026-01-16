@@ -18,6 +18,12 @@ app.post('/register', (req, res) => {
     res.json({ message: 'Inscription réussie' });
 });
 
+app.post('/clique', (req, res) => {
+    console.log('merci d\'avoir cliqué');
+    console.log(req.body);
+    res.json({ message: 'tres bien' });
+});
+
 
 
 app.listen(3000, () => {
