@@ -33,8 +33,8 @@ app.get('/info', (req, res) => {
 app.post('/register', (req, res) => {
 
 connection.query(
-  'INSERT INTO user (login) VALUES (?)',
-  [req.body.inputValue],
+  'INSERT INTO user (login, password) VALUES (?, ?)',
+  [req.body.inputValue, req.body.inputValue2],
   (err, results) => {
     if (err) {
       console.error('Erreur lors de l\'insertion dans la base de données :', err);

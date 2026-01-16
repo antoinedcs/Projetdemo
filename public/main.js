@@ -1,6 +1,7 @@
 //
 // Récupération des éléments du DOM
 const monInput = document.getElementById('monInput');
+const monInput2 = document.getElementById('monInput2');
 const monBouton = document.getElementById('monBouton');
 const monBouton2 = document.getElementById('monBouton2');
  
@@ -22,7 +23,7 @@ monBouton.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ inputValue: monInput.value })     
+        body: JSON.stringify({ inputValue: monInput.value , inputValue2: monInput2.value })     
     }).then(response => response.text())
       .then(data => {
           alert(data);
