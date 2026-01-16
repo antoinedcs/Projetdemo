@@ -31,9 +31,20 @@ app.get('/info', (req, res) => {
  
 
 app.post('/register', (req, res) => {
-console.log('Données reçues pour l\'inscription');
-console.log(req.body);
-  res.json({ message: 'Inscription réussie !' });
+
+connection.query(
+  'INSERT INTO user (login) VALUES (?)',
+  [req.body.inputValue],
+  (err, results) => {
+    if (err) {
+      console.error('Erreur lors de l\'insertion dans la base de données :', err);
+      res.status(500).json({ message: 'Erreur serveur' });
+      return;
+    }
+    console.log('Insertion réussie, ID utilisateur :', results.insertId);
+    res.json({ message: 'Inscription réussie !', userId: results.insertId });
+  }
+);
 });
  
 
