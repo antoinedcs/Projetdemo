@@ -23,9 +23,33 @@ monBouton.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ inputValue: monInput.value , inputValue2: monInput2.value })     
+        body: JSON.stringify({ login: monInput.value , inputValue2: password.value })     
     }).then(response => response.text())
       .then(data => {
           alert(data);
       });
 });
+
+userSelectedButton.addEventListener('click', () => {
+    const usersList = document.getElementById('usersList');
+    const selectedUserId = usersList.value;
+    alert('L\'ID de l\'utilisateur sélectionné est : ' + selectedUserId);
+    alert(selectedUserId + 'as voté');
+
+});
+
+
+window.onload = () => {
+    fetch('/users')
+    .then(response => response.json())
+    .then(users => {
+        const usersList = document.getElementById('usersList');
+        users.forEach(user => {
+            //création d'un input select option avec id en value et login en texte
+            const option = document.createElement('option');
+            option.value = user.id;
+            option.text = user.login;
+            usersList.appendChild(option);
+        });
+    });
+};
