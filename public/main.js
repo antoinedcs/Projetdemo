@@ -34,7 +34,17 @@ userSelectedButton.addEventListener('click', () => {
     const usersList = document.getElementById('usersList');
     const selectedUserId = usersList.value;
     alert('L\'ID de l\'utilisateur sélectionné est : ' + selectedUserId);
-    alert(selectedUserId + 'as voté');
+    fetch('/vote', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId : selectedUserId })     
+    }).then(response => response.text())
+      .then(data => {
+          alert(data);
+      });
+
 
 });
 

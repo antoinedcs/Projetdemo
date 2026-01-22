@@ -41,7 +41,18 @@ app.get('/users', (req, res) => {
   });
 });
 
-app.post('/vote', (req, res) => {
+app.get('/compteur', (req, res) => {
+  connection.query('SELECT * FROM vote', (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des utilisateurs :', err);
+      res.status(500).json({ message: 'Erreur serveur' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.post('/register', (req, res) => {
 
 connection.query(
   'INSERT INTO user (login, password) VALUES (?, ?)',
@@ -57,13 +68,12 @@ connection.query(
   }
 );
 });
-  
 
-app.post('/register', (req, res) => {
+app.post('/vote', (req, res) => {
 
 connection.query(
-  'INSERT INTO user (login, password) VALUES (?, ?)',
-  [req.body.login, req.body.password],
+  'INSERT INTO vote (iduser) VALUES (?)',
+  [req.body.userId],
   (err, results) => {
     if (err) {
       console.error('Erreur lors de l\'insertion dans la base de données :', err);
