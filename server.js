@@ -52,6 +52,17 @@ app.get('/compteur', (req, res) => {
   });
 });
 
+app.get('/stats', (req, res) => {
+  connection.query('SELECT user.login, COUNT(vote.id) as nbVotes FROM user INNER JOIN vote ON user.id = vote.iduser GROUP BY user.id', (err, results) => {
+    if (err) {
+      console.error('Erreur lors de la récupération des stats :', err);
+      res.status(500).json({ message: 'Erreur serveur' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
 app.post('/register', (req, res) => {
 
 connection.query(

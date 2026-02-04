@@ -4,6 +4,7 @@ const monInput = document.getElementById('monInput');
 const monInput2 = document.getElementById('monInput2');
 const monBouton = document.getElementById('monBouton');
 const monBouton2 = document.getElementById('monBouton2');
+const userSelectedButton = document.getElementById('userSelectedButton');
  
 // Ajout d'un écouteur d'événement sur le deuxième bouton
 monBouton2.addEventListener('click', () => {
@@ -23,7 +24,7 @@ monBouton.addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ login: monInput.value , inputValue2: password.value })     
+        body: JSON.stringify({ login: monInput.value , password: monInput2.value })     
     }).then(response => response.text())
       .then(data => {
           alert(data);
@@ -60,6 +61,18 @@ window.onload = () => {
             option.value = user.id;
             option.text = user.login;
             usersList.appendChild(option);
+        });
+    });
+    
+    fetch('/stats')
+    .then(response => response.json())
+    .then(stats => {
+        const statsBody = document.getElementById('statsBody');
+        stats.sort((a, b) => b.nbVotes - a.nbVotes);
+        stats.forEach(stat => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${stat.login}</td><td>${stat.nbVotes}</td>`;
+            statsBody.appendChild(row);
         });
     });
 };
