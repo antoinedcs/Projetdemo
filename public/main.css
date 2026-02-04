@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f1419;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #ff4655;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+h2 {
+    color: #ffd60a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 35px 0 15px 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"] {
+    background: #1a1f2e;
+    border: 1px solid #3a4556;
+    color: #e0e0e0;
+    padding: 10px 12px;
+    margin: 8px 8px 8px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #7a8592;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background: #1a1f2e;
+    border-color: #ff4655;
+    box-shadow: 0 0 0 3px rgba(255, 70, 85, 0.1);
+}
+
+input[type="button"],
+button {
+    background: #ff4655;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 8px 8px 8px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+input[type="button"]:hover,
+button:hover {
+    background: #ffd60a;
+    color: #0f1419;
+    transform: translateY(-2px);
+}
+
+select {
+    background: #1a1f2e;
+    border: 1px solid #3a4556;
+    color: #e0e0e0;
+    padding: 10px 12px;
+    margin: 8px 8px 8px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #ff4655;
+    box-shadow: 0 0 0 3px rgba(255, 70, 85, 0.1);
+}
+
+select option {
+    background: #1a1f2e;
+    color: #e0e0e0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1a1f2e;
+    border: 1px solid #3a4556;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table thead {
+    background: #252d3d;
+    border-bottom: 1px solid #3a4556;
+}
+
+table th {
+    color: #ffd60a;
+    padding: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 12px;
+}
+
+table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #3a4556;
+    color: #e0e0e0;
+}
+
+table tbody tr:hover {
+    background: #252d3d;
+}
+
+#reponse {
+    color: #ffd60a;
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 15px;
+    background: #1a1f2e;
+    border-left: 3px solid #ffd60a;
+    border-radius: 6px;
+    font-size: 14px;
+}
