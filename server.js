@@ -80,8 +80,8 @@ connection.query(
       res.status(500).json({ message: 'Erreur serveur' });
       return;
     }
-    console.log('Insertion réussie, ID utilisateur :', results.insertId);
-    res.json({ message: 'Inscription réussie !', userId: results.insertId });
+    console.log('vous avez voté, ID utilisateur :', results.insertId);
+    res.json({ message: 'Vote enregistré !', userId: results.insertId });
   }
 );
 });
