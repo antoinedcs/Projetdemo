@@ -44,6 +44,7 @@ userSelectedButton.addEventListener('click', () => {
     }).then(response => response.text())
       .then(data => {
           alert(data);
+          window.location.reload();
       });
 
 
